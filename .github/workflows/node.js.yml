@@ -10,3 +10,21 @@ jobs:
       - name: print-code
         run: |
           ls -l
+
+  build:
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: code-checkout
+        uses: actions/checkout@v6.0.1
+
+      - name: set-up-nodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: install dependencies
+        run: |
+          cd nodejs-sample-app
+          npn install --only=production
+      
+
