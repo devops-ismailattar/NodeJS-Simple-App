@@ -47,16 +47,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      - name: created artificat
-        run: |
-          cd nodejs-sample-app
-          zip -r app.zip .
 
       - name: upload artifact
         uses: actions/upload-artifact@v6.0.0
         with:
           name: node-artifact
-          path: nodejs-sample-app/app.zip
+          path: nodejs-sample-app/package*.json
 
 
   Build-and-push-image:
@@ -70,6 +66,10 @@ jobs:
         with:
           name: node-artifact
           path: nodejs-sample-app/
+      - name: verify
+        run: |
+          ls -l 
+
 
 
       
