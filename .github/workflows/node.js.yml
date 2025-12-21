@@ -87,10 +87,10 @@ jobs:
        uses: actions/checkout@v6.0.1
      - run: |
         cd nodejs-sample-app-manifest
-        sed -i "s|image:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/nodejsapp:${{ github.sha }}|" deployment.yaml  
+        sed -i "s|image:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/nodejsapp:${{ github.sha }}|" deployment.yaml   
         git config user.name "ismail"
         git config user.email "ismailattar@gmail.com"
-        git add deployment.yml
+        git add deployment.yaml
         git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
         git push origin main
       
