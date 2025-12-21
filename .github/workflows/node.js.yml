@@ -28,4 +28,21 @@ jobs:
           npm install --only=production
           ls -l 
 
+      - name: sonarqube scan
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
+        with:
+          args:
+            -Dproject.settings=nodejs-sample-app/sonar-project.properties
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ROOT_CERT: ${{ secrets.SONAR_HOST_URL }}
 
+      - name: sonar qwality gate check
+        uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
+        id: sonarqube-quality-gate-check
+        with:
+          pollingTimeoutSec: 600
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ROOT_CERT: ${{ secrets.SONAR_HOST_URL }}
+        
