@@ -25,7 +25,8 @@ jobs:
       - name: install dependencies
         run: |
           cd nodejs-sample-app
-          npm install --only=production
+          npm init -y
+          npm install 
           ls -l 
 
       - name: sonarqube scan
