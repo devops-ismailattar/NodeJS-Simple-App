@@ -1,17 +1,12 @@
-name: NodeJs Application CICD pipeline
-
-on:
-  push:
-    branches: [ "main" ]
+name: node-js-app-cicd 
+on: push
 jobs:
-  Code-checkout:
-
-    runs-on: ubuntu-latest
-
+  checkout:
+    runs-on: ubuntu
     steps:
-    - name: checkout code
-      uses: actions/checkout@v4
-    - run: |
-        ls -lrth
-        
+      - name: code-checkout
+        uses: actions/checkout@v6.0.1
 
+      - name: print-code
+        run: |
+          ls -l
