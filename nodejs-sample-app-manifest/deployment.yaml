@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: NodeJs-app
-        image: attarismail/springboot:0ba0fbc3a8148dc4adff3f315d83a4401b201971
+        image: attarismail/nodejsapp:b524751c0393bd6807f85f702dd05d9e01e9a721
         ports:
         - containerPort: 3000
           #ismail
