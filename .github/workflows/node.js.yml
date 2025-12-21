@@ -66,10 +66,18 @@ jobs:
         with:
           name: node-artifact
           path: nodejs-sample-app/
-      - name: verify
-        run: |
-          ls -l 
-
+      - name: login to dockerhub
+        uses: docker/login-action@v3.6.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: push image to dockerhub
+        uses: docker/build-push-action@v6
+        with:
+          context: nodejs-sample-app/.
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodeJSapp:${{ github.sha }}
 
 
       
