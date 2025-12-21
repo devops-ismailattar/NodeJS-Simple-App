@@ -26,5 +26,7 @@ jobs:
         run: |
           cd nodejs-sample-app
           npm install --only=production
+      - run: |
+          ls -l 
       
 
