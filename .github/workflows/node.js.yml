@@ -25,6 +25,6 @@ jobs:
       - name: install dependencies
         run: |
           cd nodejs-sample-app
-          npn install --only=production
+          npm install --only=production
       
 
