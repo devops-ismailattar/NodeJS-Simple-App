@@ -35,7 +35,7 @@ jobs:
             -Dproject.settings=nodejs-sample-app/sonar-project.properties
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ROOT_CERT: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: sonar qwality gate check
         uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
