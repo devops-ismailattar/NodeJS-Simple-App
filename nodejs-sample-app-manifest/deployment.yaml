@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: NodeJs-app
-  image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:f3e83f5dc44d538145052cf1a7891f082ae71c32
+  image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:8af5ec40ed4f5a73676fb6fbe5763cd6e808ce86
         ports:
         - containerPort: 3000
           #ismail
