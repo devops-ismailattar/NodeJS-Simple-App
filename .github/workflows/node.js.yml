@@ -86,7 +86,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: | 
           cd nodejs-sample-app-manifest
-          sed -i "s|^\s*image:.*|  image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:${{ github.sha }}|" deployment.yaml   
+          sed -i 's|^\(\s*image:\).*|\1 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:'"${{ github.sha }}"'|' deployment.yaml   
           git config user.name "ismail"
           git config user.email "ismailattar@gmail.com"
           git add deployment.yaml
@@ -94,7 +94,7 @@ jobs:
           git push origin main
           git fetch origin
           git checkout argocd
-          sed -i "s|^\s*image:.*|  image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:${{ github.sha }}|" deployment.yaml  
+          sed -i 's|^\(\s*image:\).*|\1 076226033208.dkr.ecr.ap-south-1.amazonaws.com/nodejs:'"${{ github.sha }}"'|' deployment.yaml  
           git add deployment.yaml
           git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
           git push origin argocd
