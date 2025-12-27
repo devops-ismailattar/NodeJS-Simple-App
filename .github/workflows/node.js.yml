@@ -64,7 +64,7 @@ jobs:
         with:
           context: nodejs-sample-app/.
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}//nodejsapp:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejsapp:${{ github.sha }}
 
 
 
