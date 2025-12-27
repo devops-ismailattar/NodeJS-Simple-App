@@ -86,11 +86,11 @@ jobs:
           git add deployment.yaml
           git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
           git push origin main
-          # git fetch origin
-          # git checkout argocd
-          # git add deployment.yaml
-          # git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
-          # git push origin main
+          git fetch origin
+          git checkout argocd
+          git add deployment.yaml
+          git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
+          git push origin argocd
 
 
 
