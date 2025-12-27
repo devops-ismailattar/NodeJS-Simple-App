@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: NodeJs-app
-        image: attarismail/nodejsapp:c35d0a92c00c0ee4c351a94caeef7b68f845a618
+        image: attarismail/nodejsapp:9658738dc33b932e2067429476b18463822ed460
         ports:
         - containerPort: 3000
           #ismail
