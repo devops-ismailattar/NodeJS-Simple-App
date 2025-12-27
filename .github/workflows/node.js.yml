@@ -13,6 +13,7 @@ jobs:
           node-version: 24
       - name: install dependencies
         run: |
+          cd nodejs-sample-app
           npm init -y
           npm install
           ls -l 
