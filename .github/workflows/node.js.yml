@@ -40,3 +40,21 @@ jobs:
         with:
           name: node-artifact
           path: nodejs-sample-app/package*.json
+
+  build-and-push-docker-image:
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+      - name: download build artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: node-artifact
+          path: nodejs-sample-app/
+      - name: verify
+        run: |
+          cd nodejs-sample-app
+          ls -l
+
+
